@@ -103,8 +103,6 @@ public:
 		current = new Cell("1"); //intializing 1 element
 		firstCell = current;
 
-
-
 		for (int i = 0; i < 4; i++) //intializing 1st row
 		{
 			Cell* newCell = new Cell("1");
@@ -114,89 +112,12 @@ public:
 			current = newCell;
 		}
 
-
-
-		for (int i = 0; i < 4; i++) //initializing column 5
+		for (int i = 0; i < 4; i++) //intializing other rows
 		{
-			Cell* col5 = new Cell("col5");
-			current->down = col5;
-			col5->up = current;
-			col5->right = nullptr;
-			current = col5;
+			InsertRowBelow();
 		}
-
+		
 		current = firstCell;
-		current = current->right->right->right;
-
-		for (int i = 0; i < 4; i++) //initializing column 4
-		{
-			Cell* col4 = new Cell("col4");
-			current->down = col4;
-			col4->up = current;
-			current = col4;
-		}
-
-		current = firstCell;
-
-		for (int i = 0; i < 4; i++) //initializing column 1
-		{
-			Cell* col1 = new Cell("1");
-			current->down = col1;
-			col1->up = current;
-			col1->left = nullptr;
-			current = col1;
-		}
-
-		current = firstCell;
-		current = current->right;
-
-		for (int i = 0; i < 4; i++) //initializing column 2
-		{
-			Cell* col2 = new Cell("col2");
-			current->down = col2;
-			col2->up = current;
-			current = col2;
-		}
-
-		current = firstCell;
-		current = current->right->right;
-
-		for (int i = 0; i < 4; i++) //initializing column 3
-		{
-			Cell* col3 = new Cell("col3");
-			current->down = col3;
-			col3->up = current;
-			current = col3;
-		}
-
-		current = firstCell;
-
-		Cell* conec1 = current;	//conection 1 pointer
-		Cell* conec2 = current->right; //connection 2 pointer
-
-		for (int i = 1; i <= 16; i++) //making left and right connections between 1 to 5 columns
-		{
-			conec1 = conec1->down;
-			conec2 = conec2->down;
-
-			conec1->right = conec2;
-			conec2->left = conec1;
-
-			if (i % 4 == 0)
-			{
-				while (conec1->up && conec2->up)
-				{
-					conec1 = conec1->up;
-					conec2 = conec2->up;
-
-				}
-				conec1 = conec1->right;
-				conec2 = conec2->right;
-
-			}
-
-
-		}
 
 	}
 
