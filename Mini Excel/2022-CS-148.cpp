@@ -100,12 +100,12 @@ public:
 	Excel()
 	{
 
-		current = new Cell("1"); //intializing 1 element
+		current = new Cell(" "); //intializing 1 element
 		firstCell = current;
 
 		for (int i = 0; i < 4; i++) //intializing 1st row
 		{
-			Cell* newCell = new Cell("1");
+			Cell* newCell = new Cell(" ");
 			current->right = newCell;
 			newCell->left = current;
 			newCell->up = nullptr;
@@ -126,7 +126,7 @@ public:
 	void InsertRowAbove()
 	{
 		Cell* temp = current; //storing current in temporary pointer
-		Cell* row = new Cell("nRow"); //Creating 1st Element of new Row
+		Cell* row = new Cell(" "); //Creating 1st Element of new Row
 		Cell* tempRow = row; //Creating a temporary element of row
 
 		while (temp->left)
@@ -143,7 +143,7 @@ public:
 
 			while (temp->right) //Looping till the row end
 			{
-				Cell* rowElement = new Cell("nRow"); //Creating element
+				Cell* rowElement = new Cell(" "); //Creating element
 				tempRow->right = rowElement; //Establishing right connection of previous element
 				rowElement->left = tempRow; //Establishing left connection of new Elemnt
 				temp = temp->right; //Moving temporary to right
@@ -166,7 +166,7 @@ public:
 
 			while (temp->right) //Looping till the row end
 			{
-				Cell* rowElement = new Cell("nRow");//Creating element
+				Cell* rowElement = new Cell(" ");//Creating element
 				tempRow->right = rowElement;//Establishing right connection of previous element
 				rowElement->left = tempRow; //Establishing left connection of new Elemnt
 				temp = temp->right;//Moving temporary to right
@@ -184,7 +184,7 @@ public:
 	void InsertRowBelow()
 	{
 		Cell* temp = current; //storing current in temporary pointer
-		Cell* row = new Cell("nRow"); //Creating 1st Element of new Row
+		Cell* row = new Cell(" "); //Creating 1st Element of new Row
 		Cell* tempRow = row; //Creating a temporary element of row
 
 		while (temp->left)
@@ -201,7 +201,7 @@ public:
 
 			while (temp->right) //Looping till the row end
 			{
-				Cell* rowElement = new Cell("nRow"); //Creating element
+				Cell* rowElement = new Cell(" "); //Creating element
 				tempRow->right = rowElement; //Establishing right connection of previous element
 				rowElement->left = tempRow; //Establishing left connection of new Elemnt
 				temp = temp->right; //Moving temporary to right
@@ -222,7 +222,7 @@ public:
 
 			while (temp->right) //Looping till the row end
 			{
-				Cell* rowElement = new Cell("nRow");//Creating element
+				Cell* rowElement = new Cell(" ");//Creating element
 				tempRow->right = rowElement;//Establishing right connection of previous element
 				rowElement->left = tempRow; //Establishing left connection of new Elemnt
 				temp = temp->right;//Moving temporary to right
@@ -243,7 +243,7 @@ public:
 	void InsertColumnToRight()
 	{
 		Cell* temp = current; //storing current in temporary pointer
-		Cell* col = new Cell("nCol"); //Creating 1st Element of new Col
+		Cell* col = new Cell(" "); //Creating 1st Element of new Col
 		Cell* tempCol = col; //Creating a temporary element of col
 
 		while (temp->up)
@@ -259,7 +259,7 @@ public:
 
 			while (temp->down) //Looping till the row end
 			{
-				Cell* colElement = new Cell("nCol"); //Creating element
+				Cell* colElement = new Cell(" "); //Creating element
 				tempCol->down = colElement; //Establishing down connection of previous element
 				colElement->up = tempCol; //Establishing up connection of new Elemnt
 				temp = temp->down; //Moving temporary to down
@@ -280,7 +280,7 @@ public:
 
 			while (temp->down) //Looping till the col end
 			{
-				Cell* colElement = new Cell("ncol");//Creating element
+				Cell* colElement = new Cell(" ");//Creating element
 				tempCol->down = colElement;//Establishing down connection of previous element
 				colElement->up = tempCol; //Establishing up connection of new Elemnt
 				temp = temp->down;//Moving temporary to down
@@ -301,7 +301,7 @@ public:
 	void InsertColumnToLeft()
 	{
 		Cell* temp = current; //storing current in temporary pointer
-		Cell* col = new Cell("nCol"); //Creating 1st Element of new Col
+		Cell* col = new Cell(" "); //Creating 1st Element of new Col
 		Cell* tempCol = col; //Creating a temporary element of col
 
 		while (temp->up)
@@ -317,7 +317,7 @@ public:
 
 			while (temp->down) //Looping till the row end
 			{
-				Cell* colElement = new Cell("nCol"); //Creating element
+				Cell* colElement = new Cell(" "); //Creating element
 				tempCol->down = colElement; //Establishing down connection of previous element
 				colElement->up = tempCol; //Establishing up connection of new Elemnt
 				temp = temp->down; //Moving temporary to down
@@ -338,7 +338,7 @@ public:
 
 			while (temp->down) //Looping till the col end
 			{
-				Cell* colElement = new Cell("ncol");//Creating element
+				Cell* colElement = new Cell(" ");//Creating element
 				tempCol->down = colElement;//Establishing down connection of previous element
 				colElement->up = tempCol; //Establishing up connection of new Elemnt
 				temp = temp->down;//Moving temporary to down
@@ -653,6 +653,7 @@ public:
 	//Function 17
 	void PrintSheet()
 	{
+		int count = 0;
 		for (Iterator it = Start(); it != End(); ++it)
 		{
 			setColor(32, 0);
@@ -667,6 +668,8 @@ public:
 			resetColor();
 			for (Iterator t = it; t != End(); ++t)
 			{
+				
+				
 				if (t == current)
 				{
 					setColor(32, 15);
@@ -915,7 +918,7 @@ public:
 
 				if (current->right == nullptr && i!=data.size()-1) //Checking if the columns are ended and still their are elements in vector
 				{
-					Cell* newCell = new Cell("0"); //NewCell
+					Cell* newCell = new Cell(" "); //NewCell
 					newCell->left = current; //Left Connection
 					current->right = newCell; //right Connection
 				}
@@ -937,7 +940,7 @@ public:
 				current->data = data[i];
 				if (current->down == nullptr)  //Checking if the columns are ended and still their are elements in vector
 				{
-					Cell* newCell = new Cell("0");
+					Cell* newCell = new Cell(" ");
 					newCell->up = current;
 					current->down = newCell;
 				}
